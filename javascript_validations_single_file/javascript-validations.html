@@ -1,0 +1,99 @@
+<script>
+
+
+    function errorMessage(id, msg) {
+
+        var spanId = 'error' + id;
+        var span = document.getElementById(spanId);
+        var divID = 'control' + id;
+        var div = document.getElementById(divID);
+        if (span) {
+            span.innerHTML = msg;
+        }
+
+        if (div) div.className = div.className + "error";
+    }
+
+
+    function hideErrorMessage(id) {
+        var spanID=document.getElementById(id);
+        if(spanID){
+            spanID.innerHTML="";
+        }
+
+    }
+
+    function validationForm(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        errorMsg = false;
+        var emailValue = document.getElementById("email").value;
+        var passValue = document.getElementById("password").value;
+        var surnameValue = document.getElementById("surname").value;
+        var emailReg = /^(.+)@([^\.].*)\.([a-z]{2,})$/;
+
+        var tipLenghth = document.querySelectorAll("[name=business-type]:checked").length;
+
+        if (emailValue == "") {
+            errorMessage('email', 'Email address is required');
+            errorMsg = true;
+        } else if (!emailReg.test(emailValue)) {
+            errorMessage('email', 'Enter a valid Email');
+            errorMsg = true;
+        } else {
+            hideErrorMessage('erroremail');
+
+        }
+
+      if(passValue==""){
+          errorMessage('password', 'Password is required');
+          errorMsg = true;
+      }
+    }
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS VALIDATIONS</title>
+</head>
+<body>
+<form onsubmit=validationForm(event)>
+    <div>
+
+        <label for="email">Email</label><br><span id="erroremail"></span>
+        <input id="email" type="text" placeholder="Email" class="field"/>
+    </div>
+    <div>
+        <label for="password">Password</label><br>
+        <input id="password" type="password" placeholder="password"/>
+    </div>
+
+    <div>
+        <label for="name">Name</label><br>
+        <input id="name" type="text" placeholder="Name"/>
+    </div>
+
+    <div>
+        <label for="surname">Surname</label><br>
+        <input id="surname" type="text" placeholder="surname"/>
+    </div>
+
+    <div>
+        <label>TIPS</label>
+        <div id="options">
+            <input name="business-type" type="radio" id="r1"
+                   value="type1"/>Tipo de negocio 1
+            <input name="business-type" type="radio" id="r2"
+                   value="type2"/>Tipo de negocio 2
+            <input name="business-type" type="radio" id="r3"
+                   value="type3"/>Tipo de negocio 3
+        </div>
+    </div>
+
+    <button type="submit">submit</button>
+</form>
+</body>
+</html>

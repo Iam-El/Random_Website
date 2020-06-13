@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>FORM VALIDATIONS WITH ID</title>
+</head>
+<body>
+<form method="post" onsubmit=validation(event,this)>
+    <label for="name">name <input type="text" name="name" placeholder="name" id="name"></label><br>
+    <div class="error-label-name"></div>
+    <label for="password">password <input type="text" name="password" placeholder="--/--/--" id="password" ></label><br>
+    <div class="error-label-password"></div>
+    <label for="email"> email<input type="text" name="email" placeholder="email" id="email" class="result"></label><br>
+    <div class="error-label-email"></div>
+    <label for="phone"> phone<input type="text" name="phone#" placeholder="phone" id="phone" class="result"></label><br>
+    <div class="error-label-phone"></div>
+    <label for="zip"> zip<input type="text" name="zip" placeholder="email" id="zip" class="result"></label><br>
+    <div class="error-label-zip"></div>
+
+    <button type="submit">Submit</button>
+</form>
+
+
+</body>
+</html>
+

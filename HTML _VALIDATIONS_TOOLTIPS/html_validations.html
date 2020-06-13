@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="javascript_onload_on_html.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>FORM VALIDATIONS WITH ID</title>
+</head>
+<body>
+
+<h1>HTML FORM VALIDATIONS</h1>
+<hr>
+<form  id="form-smaple" onsubmit=validation(event)>
+    <div class="form-country">
+        <label for="country">Country : </label>
+        <input list="country" name="browser" placeholder="Country" class="datalist-class"  required pattern="[Uu]sa|[Ii]ndia|[Pp]pak|"  required title="Follow the pattern" required >
+        <span id="error-country"></span>
+        <datalist id="country">
+            <option value="USA">
+            <option value="india">
+            <option value="pak">
+            <option value="bla">
+            <option value="ireland">
+        </datalist>
+        </label>
+    </div>
+    <div class="form-password">
+        <label for="password">Password : </label>
+        <input id="password" type="password" name="password" placeholder="Password"
+               class="password-class" required pattern="^\S{0,8}$"  required title="password should be 0 to 8 characters"/><span id="error-password" ></span>
+    </div>
+    <div class="form-email">
+        <label for="email">Email : </span></label>
+        <input id="email" type="text" name="email" placeholder="Email Id" class="email-class"
+               required pattern="^(.+)@([^\.].*)\.([a-z]{2,})$" required title="Email can contain @ , . egxampe "/><span id="error-email"></span>
+    </div>
+    <div class="form-button">
+        <button type="submit">Register</button>
+    </div>
+
+
+</form>
+</body>
+</html>
